@@ -1,0 +1,177 @@
+
+<!DOCTYPE html><html class=''>
+<head>
+<style class="cp-pen-styles">:root {
+  --color-primary: #2eec96;
+  --selection-color: #abffd9;
+  --unitless-max-font-size: 18;
+}
+
+body {
+  padding: 2rem 1rem;
+  background-color: #2eec96;
+}
+
+form {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+form h1 {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray-lighter);
+  font-size: var(--font-size-3);
+  text-align: center;
+}
+
+input {
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 0.75rem;
+ }
+
+ .help-text {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: var(--font-size-small);
+}
+
+input:placeholder-shown + label {
+  opacity: 0;
+  -webkit-transform: translateY(1rem);
+          transform: translateY(1rem);
+}
+
+.has-dynamic-label {
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.has-dynamic-label label {
+  position: absolute;
+  top: 0;
+  font-size: var(--font-size-small);
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+input:required + .help-text::before {
+  content: '*Required';
+}
+
+input:optional + .help-text::before {
+  content: '*Optional';
+}
+
+input:-moz-read-only {
+  border-color: var(--gray-lighter) !important;
+  color: var(--gray);
+  cursor: not-allowed;
+}
+
+input:read-only {
+  border-color: var(--gray-lighter) !important;
+  color: var(--gray);
+  cursor: not-allowed;
+}
+
+input:valid {
+  border-color: var(--color-primary);
+  background-image: url("data:image/svg+xml,%3Csvg width='45px' height='34px' viewBox='0 0 45 34' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg transform='translate%28-56.000000, -59.000000%29' fill='%232EEC96'%3E%3Cpolygon points='70.1468531 85.8671329 97.013986 59 100.58042 62.5664336 70.1468531 93 56 78.8531469 59.5664336 75.2867133'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+input:invalid {
+  border-color: var(--color-error);
+  background-image: url("data:image/svg+xml,%3Csvg width='30px' height='30px' viewBox='0 0 30 30' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg transform='translate%28-128.000000, -59.000000%29' fill='%23F44336'%3E%3Cpolygon points='157.848404 61.9920213 145.980053 73.8603723 157.848404 85.7287234 154.856383 88.7207447 142.988032 76.8523936 131.119681 88.7207447 128.12766 85.7287234 139.996011 73.8603723 128.12766 61.9920213 131.119681 59 142.988032 70.8683511 154.856383 59'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+input:invalid:focus {
+  border-color: var(--color-error);
+}
+
+input:invalid + .help-text {
+  color: var(--color-error);
+}
+
+input[type='email']:invalid + .help-text::before {
+  content: 'You must enter a valid email.'
+}
+
+input:out-of-range + .help-text::before {
+  content: 'Out of range';
+}
+
+input[type='checkbox'] + label {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}</style></head><body>
+<div class="container">
+  <form>
+    <h1>Advanced Form Styling</h1>
+    <p class="has-dynamic-label">
+      <input type="text" id="dynamic-label-input"  placeholder="Enter some text" required>
+      <label for="dynamic-label-input">Enter some text</label>
+    </p>
+    <p>
+      <label for="required-input">Required input</label>
+      <input type="text" id="required-input" required>
+      <span class="help-text"></span>
+    </p>
+    <p>
+      <label for="optional-input">Optional input</label>
+      <input type="text" id="optional-input">
+      <span class="help-text"></span>
+    </p>
+    <p>
+      <label for="disabled-input">Disabled input</label>
+      <input type="text" id="disabled-input" disabled>
+    </p>
+    <p>
+      <label for="read-only-input">Read-only input</label>
+      <input type="text" id="read-only-input" value="Read-only value" readonly>
+    </p>
+    <p>
+      <label for="valid-email">Valid input</label>
+      <input type="email" id="valid-email" value="email@email.com" required>
+      <span class="help-text"></span>
+    </p>
+    <p>
+      <label for="invalid-email">Invalid input</label>
+      <input type="email" id="invalid-email" value="notanemail" required>
+      <span class="help-text"></span>
+    </p>
+    <p>
+      <label for="in-range-input">In-range input</label>
+      <input type="number" id="in-range-input" min="1" max="10" value="8" required>
+      <span class="help-text"> (value must be between 1 and 10)</span>
+    </p>
+    <p>
+      <label for="out-of-range-input">Out-of-range input</label>
+      <input type="number" id="out-of-range-input" min="1" max="10" value="12" required>
+      <span class="help-text"> (value must be between 1 and 10)</span>
+    </p>
+    <fieldset>
+      <legend>Checked input</legend>
+      <div class="checkbox">
+        <input type="checkbox" name="checkbox" id="check-option-1" value="1" checked />
+        <label for="check-option-1">Option 1</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" name="checkbox" id="check-option-2" value="2"/>
+        <label for="check-option-2">Option 2</label>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+</body></html>

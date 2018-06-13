@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <title>首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+    <meta content="yes" name="apple-mobile-web-app-capable" /> 
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" /> 
+    <meta content="telephone=no" name="format-detection" /> 
+    <meta content="email=no" name="format-detection" /><!--禁止Android中自动识别页面中的邮件地址--> 
+<title>onTouchEnd(swiper, event)_swiper3参数选项</title>
+<link href="http://www.swiper.com.cn/dist3/css/swiper.min.css" rel="stylesheet" type="text/css" />
+<!-- <script src="http://www.swiper.com.cn/templets/default/js/jquery-1.10.1.min.js"></script>  -->
+<script src="http://www.swiper.com.cn/dist3/js/swiper.min.js"></script> 
+<!-- <link href="http://www.swiper.com.cn/templets/default/style/base.css" rel="stylesheet" media="screen" type="text/css" /> -->
+<!-- <link href="http://www.swiper.com.cn/templets/default/style/layout.css" rel="stylesheet" media="screen" type="text/css" /> -->
+<style type="text/css">
+
+/**/
+#api{
+	width:100%;
+	margin:0 auto;
+}
+
+
+/**/
+#api #content{
+	float:right;
+	vertical-align: top;
+	width:100%;
+	line-height:26px;
+color: #444!important;
+}
+
+
+
+
+#api #content .swiper-slide{
+	color:#fff;
+	line-height:300px;
+	text-align:center;
+	font-size:20px;
+}
+#api #content .blue-slide{
+	background: #4390EE;
+}
+#api #content .red-slide {
+background: #CA4040;
+}
+#api #content .orange-slide {
+background: #FF8604;
+}
+#api #content .green-slide{background:#49a430;}
+#api #content .pink-slide{background:#973e76;}
+#api #content pre div{
+	line-height:1;
+	width:100%;
+	float:left;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<div id="api">
+
+
+
+<div id="content">
+
+
+
+
+
+在最后一页继续拖动则释放跳转
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide blue-slide">slider1</div>
+		<div class="swiper-slide red-slide">slider2</div>
+		<div class="swiper-slide orange-slide">slider3</div>
+		<div class="swiper-slide red-slide">slider4</div>
+		<div class="swiper-slide orange-slide">slider5</div>
+		<div class="swiper-slide red-slide">slider6</div>
+		<div class="swiper-slide orange-slide">slider7</div>
+		<div class="swiper-slide red-slide">slider8</div>
+		<div class="swiper-slide orange-slide">slider9</div>
+		<div class="swiper-slide red-slide">slider10</div>
+		<div class="swiper-slide orange-slide">跳了</div>
+	</div>
+</div>
+
+<script> 
+	var mySwiper = new Swiper('.swiper-container',{
+	// autoplay:1000,
+	slidesPerView: 3.5,
+	onTouchEnd: function(swiper){
+	TR=swiper.translate
+	if(TR<-900){
+	swiper.setWrapperTranslate(TR);
+	location.href ="http://www.baidu.com";
+	};
+	}
+	})
+</script>
+
+
+
+
+
+
+
+</div><!--content-->
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+</html>
